@@ -36,6 +36,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService){
 function ShoppingListCheckOffService(){
   var service = this;
 
+  //had to be five items
   var buyItems = ["Buy 10 cookies","Buy 100 cookies", "buy milk for cookies", "vanilla ice-cream", "Some Soda Cans"];
   var boughtItems = [];
 
