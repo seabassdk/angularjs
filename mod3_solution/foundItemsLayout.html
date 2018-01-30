@@ -1,0 +1,12 @@
+<ol>
+  <li ng-repeat="item in dirCtrl.foundItems">
+    <div>
+      <h5 style="font-weight: bold;">{{ item.name }} [{{item.short_name}}]</h5>
+      <p>{{item.description}}</p>
+    </div>
+    <div>
+      <button ng-click="dirCtrl.onRemove({index: $index});">Don't want this one!</button>
+    </div>
+  </li>
+</ol>
+<div class="error" ng-if="dirCtrl.canShowEmpty">Nothing found.</div>
