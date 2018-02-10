@@ -1,0 +1,11 @@
+<div>
+  <h3>Categories Template</h3>
+</div>
+
+<!-- The route state's has the resolve; in this case items -->
+<ol>
+  <li ng-repeat="item in $ctrl.items">
+    <a ui-sref="itemsState({itemShortName:item.short_name})">{{item.name}}</a>
+    <!-- <a href="#">{{item.name}}</a> -->
+  </li>
+</ol>
