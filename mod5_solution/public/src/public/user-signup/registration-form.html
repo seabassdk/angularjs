@@ -1,0 +1,82 @@
+<section>
+
+<div class="container">
+
+  <div class="row justify-content-center" ng-if="$ctrl.showApplication">
+    <div class="col-sm-4 col-sm-offset-4">
+
+      <div class="row">
+        <div class="text-center">
+          <h1 style="margin-bottom: 20px;">Sign up for newsletter</h1>
+        </div>
+      </div>
+
+      <form ng-model="$ctrl.regisform" name='regForm' novalidate>
+
+        <input class="form-control" type="text" name="firstname" placeholder="Insert Your first Name"
+          ng-model="$ctrl.firstName" pattern="^[a-zA-Z]+$" required>
+<!-- ^[\p{L}\s'.-]+$ -->
+        <div ng-if="(regForm.firstname.$error.required) && regForm.firstname.$touched">
+          Please insert First Name
+        </div>
+        <div ng-if="regForm.firstname.$invalid && regForm.firstname.$touched">
+          (only characters A-z)
+        </div>
+          <br>
+
+        <input class="form-control" type="text" name="lastname" placeholder="Insert Your Last Name"
+          ng-model="$ctrl.lastName" pattern="^[a-zA-Z]+$" required >
+        <div ng-if="(regForm.lastname.$error.required) && regForm.lastname.$touched">
+          Please insert Last Name
+        </div>
+        <div ng-if="regForm.lastname.$invalid && regForm.lastname.$touched">
+          (only characters A-z)
+        </div>
+          <br>
+
+        <input class="form-control" type="email" name="email" placeholder="Email"
+        ng-model="$ctrl.email" required>
+        <div ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email format
+        </div>
+        <br>
+
+        <input class="form-control" type="text" name="favename" placeholder="Insert your favorite dish number!"
+          ng-model="$ctrl.faveShortName" ng-blur="$ctrl.checkFaveItem()" required>
+        <div ng-if="regForm.favename.$invalid && regForm.favename.$touched">
+            Menu item not found!
+        </div>
+        <br>
+
+        <!-- ng-disabled="regForm.$invalid" -->
+        <button class="btn btn-primary btn-block"
+        ng-disabled="regForm.$invalid"
+        ng-click="$ctrl.submit()">
+        Submit</button>
+
+      </form>
+    </div>
+  </div>
+
+  <div ng-if="$ctrl.favenameFound"
+        class="col-sm-6 col-sm-offset-3 text-center">
+
+      <h1>You Successfully Signed Up!!</h1>
+      <img class="img-responsive" width="400" height="auto" ng-src="./images/success.gif"
+            style="margin: auto;">
+      <h5 style="margin-bottom: 25px; margin-top: 30px;">And this is your favorite dish... yummy!</h5>
+      <img class="img-responsive" width="400" height="auto" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.faveShortName}}.jpg"
+            style="margin: auto;">
+
+  </div>
+
+  <div ng-if="$ctrl.favenameNotFound"
+        class="col-sm-4 col-sm-offset-4 text-center">
+
+      <h1>Couldn't find your favoriteDish!</h1>
+      <h5>Please check the number and try again.</h5>
+
+  </div>
+</div>
+
+</section>

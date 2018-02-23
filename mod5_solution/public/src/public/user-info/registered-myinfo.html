@@ -1,0 +1,23 @@
+<div ng-if="$ctrl.userExists">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 justify-content-center">
+        <h1>Welcome, {{$ctrl.firstName}} {{$ctrl.lastName}}</h1>
+        <h4 style="margin-top: 25px">(Your favorite meal is delicious)</h4>
+        <img class="img-responsive" width="400" height="auto" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.faveItem.short_name}}.jpg">
+        <h4 style="margin-top: 25px">Contact Information</h4>
+        <br>
+        <div>Phone number: {{$ctrl.phoneNumber}}</div>
+        <div>email: {{$ctrl.email}}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- <div>{{infoCtrl.userExists}}</div>
+<div><h1>This is the component</h1></div>
+<div>The first name: {{$ctrl.firstname}}</div>
+<div>This should diplay 'test bind': {{$ctrl.test}}</div> -->
+
+
+<div ng-if="$ctrl.userNotExists"><h4>Not Signed Up Yet. Sign up Now!</h4></div>
